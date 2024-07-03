@@ -7,7 +7,7 @@ import com.abutsko.auratestapp.repository.local.LocalRepositoryImpl
 import org.koin.dsl.module
 
 val repositoryModule = module {
-    single<LocalRepository> { LocalRepositoryImpl() }
+    single<LocalRepository> { LocalRepositoryImpl(get()) }
     single<DataRepository> { DataRepositoryImpl(get()) }
 }
 

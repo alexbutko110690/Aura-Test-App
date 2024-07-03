@@ -7,9 +7,9 @@ import java.util.Date
 
 @Entity(tableName = "boot")
 open class BootDb(
-    @PrimaryKey
-    @ColumnInfo(name = "id")
-    val id: Int,
     @ColumnInfo(name = "date")
     val date: Date,
+    @PrimaryKey(autoGenerate = true)
+    @ColumnInfo(name = "id")
+    val id: Long = 0
 )

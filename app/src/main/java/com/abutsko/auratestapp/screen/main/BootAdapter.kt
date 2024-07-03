@@ -5,16 +5,18 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.abutsko.auratestapp.data.local.BootLocal
+import com.abutsko.auratestapp.R
+import com.abutsko.auratestapp.data.local.BootCountLocal
 import com.abutsko.auratestapp.databinding.ItemBootBinding
+import com.abutsko.auratestapp.utils.dateWithoutTime
 
 class BootAdapter(private val context: Context) :
     RecyclerView.Adapter<BootAdapter.BootViewHolder>() {
 
-    private val newsItemList: MutableList<BootLocal> = mutableListOf()
+    private val newsItemList: MutableList<BootCountLocal> = mutableListOf()
 
     @SuppressLint("NotifyDataSetChanged")
-    fun setItems(list: List<BootLocal>) {
+    fun setItems(list: List<BootCountLocal>) {
         newsItemList.clear()
         newsItemList.addAll(list)
         notifyDataSetChanged()
@@ -40,9 +42,9 @@ class BootAdapter(private val context: Context) :
 
         private val binding = itemBootBinding
 
-        fun bind(boot: BootLocal) {
+        fun bind(boot: BootCountLocal) {
             with(binding) {
-
+                tvBootTime.text = root.context.getString(R.string.boot_text, boot.date.dateWithoutTime(), boot.times)
             }
         }
 
